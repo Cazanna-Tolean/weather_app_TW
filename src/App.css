@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    background-color: #1d242c;
 }
 
 label {
@@ -81,7 +81,7 @@ label {
 .weatherType {    
     width: 30%;   
     left: 250px;
-    top: 20px;    
+    top: 5px;    
     animation: cloudshift 3s infinite;    
 }
 
@@ -134,9 +134,48 @@ label {
     line-height: 80px;
 }
 
+.text-area .address{
+    font-size: 20px;
+}
+
 .text-area .infos {
     font-size: 12px;
     opacity: 0.6;
+}
+
+.choose-area{
+    background-color: #5283a3;
+    height: 30px;
+}
+
+.choose-area text{
+    position: absolute;
+    right: 120px;
+    color: #f3f3f3;
+    font-size: large;
+}
+
+.choose-area button{
+    background-color: #eee;
+    border: 1px solid #eeeeee15;
+    border-radius: .3rem;
+    font-size: 16px;
+    position: absolute;    
+    right: 0;
+    text-align: center;
+}
+
+.choose-area button:hover{
+    background-color: orange;
+    color: #f3f3f3;
+    font-weight: 800;
+}
+
+.choose-area select{
+    position: absolute;
+    right: 48px;
+    border-radius: .3rem;    
+    font-size: 16px
 }
 
 .bottom {

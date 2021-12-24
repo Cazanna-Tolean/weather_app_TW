@@ -21,6 +21,7 @@ export default class App extends Component {
   refreshInfo = async () => {
     const { value } = this.selectedRegion;
     const wResponseInfo = await wInfoAPI(value);
+    console.log(wResponseInfo);
   };
 
   render() {

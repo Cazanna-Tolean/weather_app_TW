@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import store from "./redux/store";
-import { wInfoAPI, Region } from "./api";
+import { wInfoAPI, Region } from "./api/api";
 import "./App.css";
 import { ReactComponent as CloudyPic } from "./weatherPic/cloudy.svg";
 

@@ -5,19 +5,16 @@ import "./App.css";
 import { ReactComponent as CloudyPic } from "./weatherPic/cloudy.svg";
 
 export default class App extends Component {
-  /* input region call api */
+  
   componentDidMount() {
-    store.subscribe(() => {
-      this.setState({});
-    });
     this.refreshInfo();
   }
-
+  
   retrieveRegion = () => {
     const { value } = this.selectedRegion;
     return value;
   };
-
+  /* get selected value then call api*/
   refreshInfo = async () => {
     const { value } = this.selectedRegion;
     const wResponseInfo = await wInfoAPI(value);
@@ -25,15 +22,16 @@ export default class App extends Component {
   };
 
   render() {
-    const { temperature, humid, locationName, obsDate, obsHrMin } =
+    const { temperature, humid, weatherType,locationName, obsDate, obsHrMin } =
       store.getState();
-
+    console.log(weatherType);
     return (
       <div className="daybox">
         <label>
           <input id="switch_night" type="checkbox" />
           <div className="top">
             <CloudyPic className="weatherType" />
+                        
             <div>
               <svg className="temsvg">
                 <circle cx="10" cy="60" r="3"></circle>

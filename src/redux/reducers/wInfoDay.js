@@ -1,4 +1,4 @@
-import { REFRESH } from "./constant";
+import { REFRESH } from "../constant";
 
 const initState = {
   temperature: NaN,
@@ -8,7 +8,7 @@ const initState = {
   obsDate: "",
   obsHrMin: "",
 };
-export default function wInfoReducer(preState = initState, action) {
+export default function wInfoDayReducer(preState = initState, action) {
   const { type, data } = action;
   switch (type) {
     case REFRESH:
@@ -20,8 +20,11 @@ export default function wInfoReducer(preState = initState, action) {
         obsDate,
         obsHrMin,
       } = data;
-      console.log(weatherType);
-      switch (weatherType) {
+      // console.log(weatherType);
+      humid=parseFloat(humid)*100; 
+      obsHrMin=obsHrMin.split(":")[0]+":"+obsHrMin.split(":")[1];
+
+      /* switch (weatherType) {
         case "晴":
           weatherType = "sunny";
           break;
@@ -36,7 +39,7 @@ export default function wInfoReducer(preState = initState, action) {
           break;
         default:
           weatherType = "warning_error";
-      }
+      } */
 
       return {
         ...preState,

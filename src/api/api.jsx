@@ -6,12 +6,14 @@ import { wInfoWeekAction } from "../redux/actions/wInfoWeek";
 export const Region = {
   TAIPEI: "臺北",
   TAICHUNG: "臺中",
-  KOAHSIUNG: "高雄",
+  CHIAYI: "嘉義",
+  KOAHSIUNG: "高雄", //高雄地區當日天氣，數據偶發異常，暫以嘉義代替
 };
 /* 適用一週天氣預報 */
 const regionCode = {
   臺北: "F-D0047-063",
   臺中: "F-D0047-075",
+  嘉義: "F-D0047-031",
   高雄: "F-D0047-067",
 };
 
@@ -54,7 +56,6 @@ export const wInfoDayAPI = (regionName) => {
         })
       );
 
-      // console.log(regionCode[regionName]);
       wInfoWeekAPI(regionCode[regionName]);
     })
     .catch((err) => console.log("獲取當日天氣錯誤，其原因為", err));
@@ -65,16 +66,13 @@ function wInfoWeekAPI(regionCodeValue) {
   axios
     .get(endpoint)
     .then((res) => {
-      // console.log(res.data.records.locations[0].location[0]);
       let weatherElement =
         res.data.records.locations[0].location[0].weatherElement[0];
-      // dateWeek:紀錄一週日期的陣列
+
       let dateWeekArr = new Array(7).fill(null);
       let wTypeWeekArr = new Array(7).fill(null);
       let lowestTempWeekArr = new Array(7).fill(null);
       let highestTempWeekArr = new Array(7).fill(null);
-
-      // console.log(weatherElement.time[0].elementValue[0].value);
 
       let j = 0;
       let inThreeDays = 0; //判別是否超出3天
@@ -83,21 +81,22 @@ function wInfoWeekAPI(regionCodeValue) {
         wTypeWeekArr[j] =
           weatherElement.time[i].elementValue[0].value.split("。")[0];
         if (i >= 7) {
-          inThreeDays = -1;//如果超過3天，會少掉降雨機率的欄位
+          inThreeDays = -1; //如果超過3天，會少掉降雨機率的欄位
         } else {
           inThreeDays = 0;
         }
         lowestTempWeekArr[j] =
-          weatherElement.time[i].elementValue[0].value.split("。")[2 + inThreeDays];
-        // console.log(lowestTempWeekArr[i]);
+          weatherElement.time[i].elementValue[0].value.split("。")[
+            2 + inThreeDays
+          ];
+
         highestTempWeekArr[j] =
-          weatherElement.time[i].elementValue[0].value.split("。")[2 + inThreeDays];
+          weatherElement.time[i].elementValue[0].value.split("。")[
+            2 + inThreeDays
+          ];
         j++;
       }
-      // console.log(dateWeekArr,wTypeWeekArr);
-      //取出element
-      // console.log(weatherElement.time[1].elementValue[0].value.split[2]);
-      //dispatch
+
       let dataObj = {
         dateWeekArr,
         wTypeWeekArr,

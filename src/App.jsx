@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import store from "./redux/store";
 import Buttom from "./components/Buttom";
-// import TemperatureSvg from "./components/TemperatureSvg";
 import { wInfoDayAPI, Region } from "./api/api";
 import { getDayWIcon } from "./util/getWeatherIcon";
 import "./App.css";
-// import { ReactComponent as CloudyPic } from "./weatherPic/cloudy.svg";
 
 export default class App extends Component {
   state = {
@@ -25,6 +23,7 @@ export default class App extends Component {
     console.log(wResponseInfo);
   };
 
+  // 預防頻繁call api
   debounceHandler = (cb, timing) => {
     let debounceTimer = this.state.debounceTimer;
     return () => {
@@ -39,23 +38,18 @@ export default class App extends Component {
   };
 
   render() {
-    // console.log(store.getState());
     const allInfo = store.getState();
     let wInfo = allInfo.wInfoResult;
 
     return (
       <div className="daybox">
         <label>
-          <input id="switch_night" type="checkbox" />
           <div className="top">
-            {/* <CloudyPic className="weatherType" /> */}
             <img
               className="weatherType"
               src={getDayWIcon(wInfo.weatherType)}
               alt={wInfo.weatherType}
             />
-
-            {/* <TemperatureSvg /> */}
 
             <div className="text-area">
               <div className="temperature">{wInfo.temperature}°C</div>
@@ -75,14 +69,14 @@ export default class App extends Component {
               <optgroup label="中部"></optgroup>
               <option value={Region.TAICHUNG}>{Region.TAICHUNG}</option>
               <optgroup label="南部"></optgroup>
-              <option value={Region.KOAHSIUNG}>{Region.KOAHSIUNG}</option>
+              <option value={Region.CHIAYI}>{Region.CHIAYI}</option>
             </select>
             <button onClick={this.debounceHandler(this.refreshInfo, 1000)}>
               刷新
             </button>
           </div>
 
-          <Buttom/>
+          <Buttom />
         </label>
       </div>
     );

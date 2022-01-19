@@ -1,100 +1,95 @@
 .dayweather {
-    opacity: 1;
-    top: 0px;
+  width: calc(100% / 7 - 5px);
+  display: inline-block;
+  text-align: center;
+  opacity: 0;
+  transition-duration: 1s;
+  top: 20px;
 }
 
 .dayweather:nth-child(1) {
-    transition-delay: 0.2s;
+  transition-delay: 0.1s;
 }
 
 .dayweather:nth-child(2) {
-    transition-delay: 0.4s;
+  transition-delay: 0.2s;
 }
 
 .dayweather:nth-child(3) {
-    transition-delay: 0.6s;
+  transition-delay: 0.3s;
 }
 
 .dayweather:nth-child(4) {
-    transition-delay: 0.8s;
+  transition-delay: 0.4s;
 }
 
 .dayweather:nth-child(5) {
-    transition-delay: 1s;
+  transition-delay: 0.5s;
 }
 
 .dayweather:nth-child(6) {
-    transition-delay: 1.2s;
+  transition-delay: 0.6s;
 }
 
 .dayweather:nth-child(7) {
-    transition-delay: 1.4s;
-}
-
-.dayweather {
-    width: calc(100% / 7 - 5px);
-    display: inline-block;
-    text-align: center;
-    opacity: 0;
-    transition-duration: 1s;
-    top: 20px;
+  transition-delay: 0.7s;
 }
 
 .dayweather h3 {
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.6);
-    letter-spacing: 1px;
-}
-
-.dayweather .loweshestTemp{
-    color: #3f7fb8;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  letter-spacing: 1px;
 }
 
 .dayweather h4 {
-    font-size: 10px;
-    color: rgba(0, 0, 0, 0.6);
-    letter-spacing: 0.5px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.5px;
+}
+
+.dayweather .loweshestTemp {
+  color: #3f7fb8;
 }
 
 .dayweather svg {
-    width: 100%;
-    max-width: 40px;
-    height: 40px;
+  width: 100%;
+  max-width: 40px;
+  height: 40px;
 }
 
 .dayweather svg .sun {
-    fill: #FFD633;
-    stroke: rgba(255, 214, 51, 0.5);
-    stroke-width: 30px;
-    stroke-dasharray: 5px;
+  fill: #ffd633;
+  stroke: rgba(255, 214, 51, 0.5);
+  stroke-width: 30px;
+  stroke-dasharray: 5px;
 }
 
 .dayweather svg .rain {
-    stroke: #4DACFF;
-    stroke-width: 5px;
+  stroke: #4dacff;
+  stroke-width: 5px;
 }
 
 .dayweather svg .cloud {
-    fill: #ccc;
+  fill: #ccc;
 }
 
 .cloud:before,
 .cloud:after {
-    content: "";
-    background-color: #ccc;
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    position: absolute;
+  content: "";
+  background-color: #ccc;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: absolute;
 }
 
 .cloud:before {
-    left: 15px;
-    bottom: 15px;
+  left: 15px;
+  bottom: 15px;
 }
 
 .cloud:after {
-    left: 35px;
-    bottom: 5px;
+  left: 35px;
+  bottom: 5px;
 }

@@ -12,8 +12,6 @@ export default class App extends Component {
 
   componentDidMount() {
     this.refreshInfo();
-    const testInfo = store.getState();
-    console.log(testInfo);
   }
 
   /* get selected value then call api*/

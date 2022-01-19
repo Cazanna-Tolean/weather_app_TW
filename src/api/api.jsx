@@ -103,11 +103,8 @@ function wInfoWeekAPI(regionCodeValue) {
         lowestTempWeekArr,
         highestTempWeekArr,
       };
-      console.log(dataObj);
-      store.dispatch(wInfoWeekAction(dataObj));
-
-      let result = store.getState();
-      console.log(result);
+      
+      store.dispatch(wInfoWeekAction(dataObj));     
     })
     .catch((err) => {
       console.log("獲取一週天氣錯誤，其原因為", err);

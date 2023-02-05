@@ -1,18 +1,18 @@
 const wTwEnComparison = new Map([
-  ["雪", "sn"],
-  ["雷", "t"],
-  ["電", "t"],
-  ["大雨", "hr"],
-  ["雨", "lr"],
-  ["多雲", "hc"],
-  ["雲", "lc"],
-  ["晴", "c"],
-  ["陰","hc"]
+  ["雪", "16"],
+  ["雷", "15"],
+  ["電", "15"],
+  ["大雨", "18"],
+  ["雨", "12"],
+  ["多雲", "8"],
+  ["雲", "7"],
+  ["晴", "1"],
+  ["陰","3"]
 ]);
 
 const wTypeListArr = ["雪", "雷", "電", "大雨", "雨", "多雲", "雲", "晴","陰"];
 
-const iconUrl = "https://www.metaweather.com/static/img/weather/";
+const iconUrl = "https://www.accuweather.com/images/weathericons/";
 
 export function handleDayIcon(wTypeDay) {
   let findIcon = false;
